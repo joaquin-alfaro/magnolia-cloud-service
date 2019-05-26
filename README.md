@@ -39,7 +39,7 @@ public interface ServiceDiscovery<T> {
 ~~~~
 Puede ser empleado cualquier servicio de Service Discovery implementando el interfaz anterior.
 
-####Configuración
+#### Configuración  
 **Nombre del servicio**  
 
 El property *magnolia.cloud.appName* de magnolia indica el servicio con que se registran las instancias de magnolia   
@@ -49,7 +49,7 @@ El property *magnolia.cloud.appName* de magnolia indica el servicio con que se r
 magnolia.cloud.appName=magnolia-public-by-formentor
 ~~~~
 
-**Consul**  
+**Configuración de consul**  
 Consul se configura en la configuración del propio módulo  
 ![Configuración consul](_dev/consul-config.png)
  
