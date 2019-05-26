@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd" >
+<module>
+  <name>magnolia-cloud-service</name>
+  <displayName>${project.name}</displayName>
+  <description>${project.description}</description>
+  <class>com.formentor.magnolia.cloud.CloudService</class>
+  <versionHandler>com.formentor.magnolia.cloud.setup.CloudServiceVersionHandler</versionHandler>
+  <version>${project.version}</version>
+
+  <!-- For more information on module descriptor configuration options -->
+  <!-- https://documentation.magnolia-cms.com/display/DOCS/XML-based+module+descriptor -->
+
+  <components>
+    <id>main</id>
+    <component>
+      <type>com.formentor.magnolia.cloud.service.ServiceDiscovery</type>
+      <implementation>com.formentor.magnolia.cloud.consul.ConsulServiceDiscovery</implementation>
+      <scope>singleton</scope>
+    </component>
+    <component>
+      <type>com.formentor.magnolia.cloud.health.HealthIndicator</type>
+      <implementation>com.formentor.magnolia.cloud.health.HealthIndicator</implementation>
+      <scope>singleton</scope>
+    </component>
+    <!-- Overwrite publishing-Sender with custom Sender that uses service discovery -->
+    <type-mapping>
+      <type>info.magnolia.publishing.sender.Sender</type>
+      <!--implementation>info.magnolia.publishing.sender.DefaultSender</implementation-->
+      <implementation>com.formentor.magnolia.cloud.publishing.sender.CloudSender</implementation>
+    </type-mapping>
+  </components>
+
+  <dependencies>
+    <dependency>
+      <name>core</name>
+      <version>*</version>
+    </dependency>
+    <!--  Add other dependencies here, e.g the mte (magnolia templating essentials).
+    <dependency>
+      <name>mte</name>
+      <version>0.7/*</version>
+    </dependency>
+    -->
+
+    <!-- Dependency with rest-client for RestClientRegistry component -->
+    <dependency>
+      <name>rest-client</name>
+      <version>*</version>
+    </dependency>
+    <dependency>
+      <name>publishing-sender</name>
+      <version>*</version>
+    </dependency>
+  </dependencies>
+</module>
