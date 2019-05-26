@@ -59,8 +59,9 @@ Si el dominio no está registrado como servicio, entonces emplea la url tal cual
 ![Ejemplo de configuración](_dev/publishing-core-receivers.png)
 
 ## Demo
-1- El modulo incluye un boostrap con la configuración de una instalación estándar de Consul. A continuación explico como probarlo
-Instalar consul siguiendo las instrucciones de la web de consul (es muy simple) https://learn.hashicorp.com/consul/getting-started/install
+El modulo incluye un boostrap con la configuración de una instalación estándar de Consul. A continuación explico como probarlo  
+
+1- Instalar consul siguiendo las instrucciones de la web de consul (es muy simple) https://learn.hashicorp.com/consul/getting-started/install
 
 2- Arrancar Consul
 ~~~~
